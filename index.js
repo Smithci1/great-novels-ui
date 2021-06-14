@@ -14,6 +14,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(cors({ origin: "http://localhost:3000" }));
+
 
 app.get('/api', getAllAuthors)
 app.get('/api/:identifier', getAuthorByIdOrName)
