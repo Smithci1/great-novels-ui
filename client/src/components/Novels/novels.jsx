@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './novels.css'
 
 
 const novelCollection = () => {
     return (
-        <>
         <div className="navbar-container">
             <nav className="navbar">
                 <h1 className="title">  
@@ -13,7 +12,7 @@ const novelCollection = () => {
             </nav>
              
         </div>
-        </>
+     
 
     )
 }
