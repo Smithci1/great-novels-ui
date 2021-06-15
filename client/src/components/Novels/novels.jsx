@@ -1,8 +1,8 @@
-import React from 'react';
+import React,  {useState} from 'react';
 import './novels.css'
 
 
-const Collection = () => {
+const Collection = (properties) => {
     return (
         <div className='title'>
                 <h1 className='title-name'>
@@ -10,11 +10,13 @@ const Collection = () => {
                  </h1>
                  <form>
 	<label for="search">Search</label>
-	<input id="search" type="search" pattern=".*\S.*" required>
+	<input id="search" type="search" pattern=".*\S.*" required
+    onChange={(event) => properties.setSearchTerm(event.target.value)}>
         </input>
 	<span class="caret"></span>
        </form>
        </div>
+       
             
             
     

@@ -31,6 +31,7 @@ body, input {
 	color: olive;
 	font: 1em/1.5 Hind, modern;
     letter-spacing: 2px;
+   
 }
 body {
 	background: var(--bg)
