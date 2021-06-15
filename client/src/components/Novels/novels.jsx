@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './novels.css'
 
 
-const novelCollection = () => {
+const Collection = () => {
     return (
-        <div className="navbar-container">
-            <nav className="navbar">
-                <h1 className="title">  
-                Chadwick's Novels
-                </h1>
-            </nav>
-             
-        </div>
+        <div className='title'>
+                <h1 className='title-name'>
+                Great Novels
+                 </h1>
+                 <form>
+	<label for="search">Search</label>
+	<input id="search" type="search" pattern=".*\S.*" required>
+        </input>
+	<span class="caret"></span>
+       </form>
+       </div>
+            
+            
+    
+      
      
 
     )
 }
-export default novelCollection
+export default Collection

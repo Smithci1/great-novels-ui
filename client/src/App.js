@@ -1,12 +1,17 @@
-import novelCollection from './components/Novels/novels';
+import React from 'react';
+import Collection from './components/novels/Novels'
 import './App.css';
+
+// import {fetchData, filtered} from './utils/Novels'
 
 function App() {
   return (
-    <div className="App">
-      < novelCollection />
-      
+    <div className="collection">
+      < Collection />
     </div>
+
+      
+   
   );
 }
 
