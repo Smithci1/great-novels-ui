@@ -7,7 +7,7 @@ export async function fetchData() {
 }
 
 export const filtered = (novelsData, searchTerm) => novelsData.filter(novels => {
-    return novels.name.toLowerCase().includes(searchTerm.toLowerCase)
+    return novels.title.toLowerCase().includes(searchTerm.toLowerCase)
 })
 //novlesData
 //searchTerm

@@ -1,8 +1,10 @@
 import React,  {useState} from 'react';
 import './novels.css'
 
-
-const Collection = (properties) => {
+export function authorsNovel ({id, title, author}) {
+<div key={id} className="novel">{`${title} by ${author}`}</div>
+}
+export function Collection (properties) {
     return (
         <div className='title'>
                 <h1 className='title-name'>

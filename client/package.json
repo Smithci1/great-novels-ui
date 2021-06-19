@@ -18,11 +18,12 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
+  "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
     "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
-    "start": "react-scripts start",
+    "dev:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "dev": "./node_modules/.bin/concurrently \"npm run dev:server\" \"npm run dev:client\""
   },
   "eslintConfig": {
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
-    "env-cmd": "^10.1.0"
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.7"
   }
 }
