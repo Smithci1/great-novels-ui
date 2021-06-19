@@ -1,13 +1,14 @@
 import fetchApiData from '../actions/Novels';
 
-export async function fetchData() {
-    const data = await fetchApiData()
-
-    return data
-}
-
-export const filtered = (novelsData, searchTerm) => novelsData.filter(novels => {
-    return novels.title.toLowerCase().includes(searchTerm.toLowerCase)
-})
+export const filtered = (novelsData, searchTerm) => novelsData.filter(novel => (
+    novel.title.toLowerCase().includes(searchTerm.toLowerCase())
+  ))
+  
+  export const fetchData = async () => {
+    const novels = await fetchApiData()
+  
+    return novels
+  }
+  
 //novlesData
 //searchTerm

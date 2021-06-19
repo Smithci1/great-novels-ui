@@ -1,34 +1,45 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React, {useState, useEffect } from 'react';
 import './App.css';
-import Collection from './components/novels/Novels'
-import axios from 'axios';
-
-// import {fetchData, filtered} from './utils/Novels'
-export default () => {
+import TitleSearch from './components/novels/search'
+import {fetchData, filtered} from './utils/Novels';
+import Novels from './actions/Novels';
+export default () =>{
   //set state
-   
   const [novelsData, setNovelsData] = useState([])
-  const [fileredNovels, setFilteredData] = useState([])
-  const [searchTerm, setSearchTerm] = useState([])
+  const [filteredData, setFilteredData] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
 
   //pull data with use effect.
-
   useEffect(() => {
     async function pullData() {
-      const { data } = await axios.get('http://localhost:1337/api')
+      const  data  = await fetchData()
       setNovelsData(data)
-      console.log(data)
+      setFilteredData(data)
     }
     pullData()
 
   }, [])
+  useEffect(() => {
+    const filteredNovels = filtered(novelsData, searchTerm)
+
+    setFilteredData(filteredNovels)
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [searchTerm])
+
   return (
     <div className="collection">
-      < Collection />
+      <TitleSearch term={searchTerm} setter={setSearchTerm} />
+      {
+        filteredData.map(novel => (
+          <authorsNovel 
+          key={novel.id}
+          id={novel.id}
+          title={novel.title}
+          author={`${novel.author.nameFirst} ${novel.author.nameLast}`}
+          />
+        ))
+      }
     </div>
-
-      
-   
   );
 }
