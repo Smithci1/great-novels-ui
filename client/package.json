@@ -11,14 +11,16 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "sequelize": "^6.6.2",
     "sequelize-cli": "^6.2.0",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-  "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
+    "dev:server": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon index.js",
     "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
     "dev:client": "react-scripts start",
     "build": "react-scripts build",

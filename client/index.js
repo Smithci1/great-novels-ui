@@ -1,4 +1,7 @@
-const express = require('express')
+const express = require('express');
+ const path = require('path');
+ const cors = require('cors');
+
 const { getAllAuthors, getAuthorByIdOrName } = require('./controllers/authors')
 const { getAllGenres, getGenreById } = require('./controllers/genres')
 const { getAllNovels, getNovelByIdOrTitle } = require('./controllers/novels')
@@ -16,15 +19,17 @@ app.use((req, res, next) => {
 });
 app.use(cors({ origin: "http://localhost:3000" }));
 
+app.get('/api/authors',express.json(), getAllAuthors)
+app.get('/api/authors:identifier', getAuthorByIdOrName)
 
-app.get('/api', getAllAuthors)
-app.get('/api/:identifier', getAuthorByIdOrName)
+app.get('/api/genres', express.json(),getAllGenres)
+app.get('/api/genres/:id', express.json(),getGenreById)
 
-app.get('/api', getAllGenres)
-app.get('/api/:id', getGenreById)
+app.get('/api/novels',express.json(), getAllNovels)
+app.get('/api/novels/:identifier',express.json(), getNovelByIdOrTitle)
 
-app.get('/api', getAllNovels)
-app.get('/api/:identifier', getNovelByIdOrTitle)
+app.all('*', (req,res) => res.status(404).sendFile(path.join(__dirname + 'public', '/index.html'))
+)
 
 app.listen(1337, () => {
   console.log('Listening on port 1337...') // eslint-disable-line no-console

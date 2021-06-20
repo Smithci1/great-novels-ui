@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Novels from './components/Novels'
-ReactDOM.render(
+   ReactDOM.render(
 
     <Novels />, document.getElementById('root')
 );
 
+ 
