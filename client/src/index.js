@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Novels from './components/Novels'
 ReactDOM.render(
-    <App />, document.getElementById('root')
+
+    <Novels />, document.getElementById('root')
 );
 
