@@ -4,6 +4,7 @@ import React, {useState, useEffect } from 'react';
 import AuthorsNovel from './AuthorsNovel';
 import {fetchData, filtered} from '../utils/Novels';
 import './novels.css'
+import Title from './Title'
  
 
 export default () =>{
@@ -30,23 +31,21 @@ export default () =>{
 
   return (
     <>
-  <div className='title'>
-  <h1 className='title-name'> Great Novels</h1>
+   <Title />
    <form>
 <label for="search">Search</label>
 <input type="search" value={searchTerm} pattern=".*\S.*" 
 onChange={event => setSearchTerm(event.target.value)} /> 
 <span class="caret"></span>
-</form>
 {filteredData.map(novel => (
   <AuthorsNovel
      key={novel.id}
      id={novel.id}
      title={novel.title}
-     author={`${novel.author.nameFirst} ${novel.author.nameLast}`}
+     author={`📖 ${novel.author.nameFirst} ${novel.author.nameLast}`}
     />
 ))}
-  </div> 
+</form>
 
 </>
 
