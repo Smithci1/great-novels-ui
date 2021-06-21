@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
 import Novels from './components/Novels'
    ReactDOM.render(
-
-    <Novels />, document.getElementById('root')
+       <BrowserRouter>
+         <Switch>
+             <Route path="/" component={Novels} />
+         </Switch>
+       
+       </BrowserRouter>,
+    document.getElementById('root')
 );
 
  
